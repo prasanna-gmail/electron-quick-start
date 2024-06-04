@@ -8,6 +8,9 @@ import fs from 'fs';
 import sharp from 'sharp';
 import base64js from 'base64-js';
 
+class MyConstants { }
+
+MyConstants.SAVED_PATH = "saved";
 
 async function imageTransformations(X) {
     try {
@@ -22,9 +25,10 @@ async function imageTransformations(X) {
 
 async function predictShape(img) {
     try {
-        const modelPath = "./Saved/model.json";
+        const modelPath = "./" + MyConstants.SAVED_PATH + "/model.json";
+        const encoderPath = "./" + MyConstants.SAVED_PATH + "/label_encoder.json"
         const model = await tf.loadLayersModel(`file://${modelPath}`);
-        const labelEncoder = JSON.parse(fs.readFileSync('./Saved/label_encoder.json', 'utf8'));
+        const labelEncoder = JSON.parse(fs.readFileSync(encoderPath, 'utf8'));
         const image = await imageTransformations(img);
         const pred = model.predict(image);
         const predArray = pred.arraySync();
@@ -47,7 +51,7 @@ async function submitShape(imageData) {
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const app = express();
-const PORT = process.env.PORT || 3002;
+const PORT = process.env.PORT || 3003;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());

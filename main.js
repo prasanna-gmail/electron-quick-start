@@ -26,15 +26,11 @@ function createWindow() {
     }
   )
   serverProc.on('exit', (code, sig) => {
-    console.log("pkp clicker1: ~ serverProc.on ~ code:")
-    // console.log("pkp clicker1: ~ serverProc.on ~ code:", code)
     // finishing
   })
   serverProc.on('error', (error) => {
-    console.log("pkp clicker1: ~ serverProc.on ~ error:")
     // error handling
   })
-  console.log("pkp clicker1: ~ serverProc.on ~ serverProc:")
 
   /**
  * EO Server create
