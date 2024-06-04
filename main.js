@@ -15,7 +15,9 @@ function createWindow() {
   // and load the index.html of the app.
   mainWindow.loadFile('index.html')
 
-
+  /**
+   * BO Server create
+   */
   let serverProc = require('child_process').fork(
     require.resolve('./server.mjs'),
     ['--key', 'value'], // pass to process.argv into child
@@ -33,6 +35,10 @@ function createWindow() {
     // error handling
   })
   console.log("pkp clicker1: ~ serverProc.on ~ serverProc:")
+
+  /**
+ * EO Server create
+ */
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
