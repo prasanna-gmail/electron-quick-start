@@ -1,5 +1,18 @@
 # electron-quick-start
 
+## refrence to changes and restrictions
+
+- node js to be more than ^18.17.0 so current is used : v18.20.3 in my mac
+    Node-API v9 compatible runtime e.g. Node.js ^18.17.0 or >=20.3.0.
+    // https://sharp.pixelplumbing.com/install
+
+- to install sharp use this on mac m1
+```
+npm install --os=darwin --cpu=arm64 sharp
+```
+
+
+
 **Clone and run for a quick way to see Electron in action.**
 
 This is a minimal Electron application based on the [Quick Start Guide](https://electronjs.org/docs/latest/tutorial/quick-start) within the Electron documentation.

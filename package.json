@@ -18,5 +18,12 @@
   "license": "CC0-1.0",
   "devDependencies": {
     "electron": "^30.0.9"
+  },
+  "dependencies": {
+    "@tensorflow/tfjs-node": "^4.20.0",
+    "base64-js": "^1.5.1",
+    "express": "^4.19.2",
+    "sharp": "^0.33.4",
+    "url": "^0.11.3"
   }
 }
