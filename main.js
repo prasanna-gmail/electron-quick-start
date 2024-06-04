@@ -2,7 +2,7 @@
 const { app, BrowserWindow } = require('electron')
 const path = require('node:path')
 
-function createWindow () {
+function createWindow() {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     width: 800,
@@ -14,6 +14,25 @@ function createWindow () {
 
   // and load the index.html of the app.
   mainWindow.loadFile('index.html')
+
+
+  let serverProc = require('child_process').fork(
+    require.resolve('./server.mjs'),
+    ['--key', 'value'], // pass to process.argv into child
+    {
+      // options
+    }
+  )
+  serverProc.on('exit', (code, sig) => {
+    console.log("pkp clicker1: ~ serverProc.on ~ code:")
+    // console.log("pkp clicker1: ~ serverProc.on ~ code:", code)
+    // finishing
+  })
+  serverProc.on('error', (error) => {
+    console.log("pkp clicker1: ~ serverProc.on ~ error:")
+    // error handling
+  })
+  console.log("pkp clicker1: ~ serverProc.on ~ serverProc:")
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
