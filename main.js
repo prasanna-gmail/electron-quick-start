@@ -17,6 +17,8 @@ function createWindow() {
 
   /**
    * BO Server create
+   * 
+   * TODO: utilityProcess.fork implementation
    */
   let serverProc = require('child_process').fork(
     require.resolve('./server.mjs'),
